@@ -11,6 +11,7 @@ ENDDB  = 'enddb.'
 ENDREC = 'endrec.'
 RECSEP = '=>'
 
+
 def storeDbase(db, dbfilename=dbfilename):
     "formatted dump of database to flat file"
     dbfile = open(dbfilename, 'w')
@@ -21,6 +22,7 @@ def storeDbase(db, dbfilename=dbfilename):
         print(ENDREC, file=dbfile)
     print(ENDDB, file=dbfile)
     dbfile.close()
+
 
 def loadDbase(dbfilename=dbfilename):
     "parse data to reconstruct database"
@@ -39,6 +41,7 @@ def loadDbase(dbfilename=dbfilename):
         db[key] = rec
         key = input()
     return db
+
 
 if __name__ == '__main__':
     from initdata import db
