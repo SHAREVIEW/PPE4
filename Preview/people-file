@@ -5,7 +5,7 @@ age=>42
 name=>'Bob Smith'
 endrec.
 sue
-pay=>44000.0
+pay=>53240.000000000015
 job=>'hdw'
 age=>45
 name=>'Sue Jones'

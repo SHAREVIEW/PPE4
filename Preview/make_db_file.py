@@ -44,5 +44,5 @@ def loadDbase(dbfilename=dbfilename):
 
 
 if __name__ == '__main__':
-    from Preview.initdata import db
+    from initdata import db
     storeDbase(db)
