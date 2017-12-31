@@ -35,12 +35,14 @@ for fieldname in fieldnames:
     rowshtml += (rowhtml % ((fieldname,) * 3))
 replyhtml = replyhtml.replace('$ROWS$', rowshtml)
 
+
 def htmlize(adict):
     new = adict.copy()
     for field in fieldnames:                       # values may have &, >, etc.
         value = new[field]                         # display as code: quoted
         new[field] = cgi.escape(repr(value))       # html-escape special chars
     return new
+
 
 def fetchRecord(db, form):
     try:
@@ -52,6 +54,7 @@ def fetchRecord(db, form):
         fields = dict.fromkeys(fieldnames, '?')
         fields['key'] = 'Missing or invalid key!'
     return fields
+
 
 def updateRecord(db, form):
     if not 'key' in form:
@@ -70,6 +73,7 @@ def updateRecord(db, form):
         fields = record.__dict__
         fields['key'] = key
     return fields
+
 
 db = shelve.open(shelvename)
 action = form['action'].value if 'action' in form else None
