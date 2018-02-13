@@ -1,5 +1,6 @@
 "collect command-line options in a dictionary"
 
+
 def getopts(argv):
     opts = {}
     while argv:
@@ -9,6 +10,7 @@ def getopts(argv):
         else:
             argv = argv[1:]
     return opts
+
 
 if __name__ == '__main__':
     from sys import argv                       # example client code
