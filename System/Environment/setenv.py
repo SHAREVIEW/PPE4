@@ -1,6 +1,9 @@
 import os
-print('setenv...', end=' ')
-print(os.environ['USER'])                # show current shell variable value
+try:
+    print('setenv...', end=' ')
+    print(os.environ['USER'])                # show current shell variable value
+except:
+    print('KeyError: \'USER\'')
 
 os.environ['USER'] = 'Brian'             # runs os.putenv behind the scenes
 os.system('python echoenv.py')

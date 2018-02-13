@@ -1,3 +1,6 @@
 import os
 print('echoenv...', end=' ')
-print('Hello,', os.environ['USER'])
+try:
+    print('Hello,', os.environ['USER'])
+except:
+    print('KeyError: \'USER\'')
