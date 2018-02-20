@@ -7,6 +7,7 @@ use it for user reply--use platform-specific tools or GUI;
 
 import sys
 
+
 def getreply():
     """
     read a reply key from an interactive user
@@ -23,8 +24,9 @@ def getreply():
             return key
         else:
             assert False, 'platform not supported'
-            #linux?: open('/dev/tty').readline()[:-1]
-            
+            # linux?: open('/dev/tty').readline()[:-1]
+
+
 def more(text, numlines=10):
     """
     page multiline string to stdout
@@ -33,8 +35,11 @@ def more(text, numlines=10):
     while lines:
         chunk = lines[:numlines]
         lines = lines[numlines:]
-        for line in chunk: print(line)
-        if lines and getreply() not in [b'y', b'Y']: break
+        for line in chunk:
+            print(line)
+        if lines and getreply() not in [b'y', b'Y']:
+            break
+
 
 if __name__ == '__main__':                       # when run, not when imported
     if len(sys.argv) == 1:                       # if no command-line arguments
