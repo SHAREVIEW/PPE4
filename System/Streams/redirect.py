@@ -15,7 +15,8 @@ class Output:                                   # simulated output file
         self.text += string
 
     def writelines(self, lines):                # add each line in a list
-        for line in lines: self.write(line)
+        for line in lines:
+            self.write(line)
 
 
 class Input:                                    # simulated input file
