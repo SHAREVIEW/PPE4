@@ -1,7 +1,10 @@
 #!/usr/local/bin/python
 from sys import argv
 from scanfile import scanner
+
+
 class UnknownCommand(Exception): pass
+
 
 def processLine(line):                      # define a function
     if line[0] == '*':                      # applied to each line
@@ -11,8 +14,10 @@ def processLine(line):                      # define a function
     else:
         raise UnknownCommand(line)          # raise an exception
 
+
 filename = 'data.txt'
-if len(argv) == 2: filename = argv[1]       # allow filename cmd arg
+if len(argv) == 2:
+    filename = argv[1]                      # allow filename cmd arg
 scanner(filename, processLine)              # start the scanner
 
 
