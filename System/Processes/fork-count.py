@@ -8,10 +8,12 @@ Windows instead; spawnv is roughly like a fork+exec combination;
 
 import os, time
 
+
 def counter(count):                                    # run in new process
     for i in range(count):
         time.sleep(1)                                  # simulate real work
         print('[%s] => %s' % (os.getpid(), i))
+
 
 for i in range(5):
     pid = os.fork()
@@ -20,5 +22,6 @@ for i in range(5):
     else:
         counter(5)                                     # else in child/new process
         os._exit(0)                                    # run function and exit
+
 
 print('Main process exiting.')                         # parent need not wait
