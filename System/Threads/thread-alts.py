@@ -4,16 +4,21 @@ add locks to synchronize prints if needed to avoid overlaps or output
 dupication (see later in the chapter); all 3 threads print 4294967296
 """
 
-import _thread, time
+import _thread
+import time
+
 
 def action(i):                                       # function run in threads
     print(i ** 32)
 
+
 class Power:
     def __init__(self, i):
         self.i = i
+
     def action(self):                                # bound method run in threads
         print(self.i ** 32)
+
 
 _thread.start_new_thread(action, (2,))               # simple function
 

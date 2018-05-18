@@ -5,12 +5,15 @@ this kills all other threads on some platforms; stdout is shared:
 thread outputs may be intermixed in this version arbitrarily.
 """
 
-import _thread as thread, time
+import _thread as thread
+import time
+
 
 def counter(myId, count):                        # function run in threads
     for i in range(count):
         time.sleep(1)                            # simulate real work
         print('[%s] => %s' % (myId, i))
+
 
 for i in range(5):                               # spawn 5 threads
     thread.start_new_thread(counter, (i, 5))     # each thread loops 5 times

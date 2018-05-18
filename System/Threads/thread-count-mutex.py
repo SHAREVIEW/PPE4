@@ -3,7 +3,9 @@ synchronize access to stdout: because it is shared global,
 thread outputs may be intermixed if not synchronized
 """
 
-import _thread as thread, time
+import _thread as thread
+import time
+
 
 def counter(myId, count):                        # function run in threads
     for i in range(count):
@@ -11,6 +13,7 @@ def counter(myId, count):                        # function run in threads
         mutex.acquire()
         print('[%s] => %s' % (myId, i))          # print isn't interrupted now
         mutex.release()
+
 
 mutex = thread.allocate_lock()                   # make a global lock object
 for i in range(5):                               # spawn 5 threads
