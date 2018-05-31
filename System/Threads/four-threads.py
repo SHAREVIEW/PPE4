@@ -4,16 +4,23 @@ but prints should be synchronized with a mutex here to avoid overlap
 """
 
 import threading, _thread
+
+
 def action(i): 
     print(i ** 32)
+
 
 # subclass with state
 class Mythread(threading.Thread):
     def __init__(self, i):
         self.i = i
         threading.Thread.__init__(self)
-    def run(self):                                        # redefine run for action
+
+    def run(self):
+        # redefine run for action
         print(self.i ** 32)
+
+
 Mythread(2).start()                                       # start invokes run()
 
 # pass action in

@@ -3,6 +3,7 @@
 import threading, time
 count = 0
 
+
 def adder(addlock):                 # shared lock object passed in
     global count
     with addlock: 
@@ -11,6 +12,7 @@ def adder(addlock):                 # shared lock object passed in
     with addlock:
         count = count + 1           # only 1 thread updating at once
 
+
 addlock = threading.Lock()
 threads = []
 for i in range(100):
@@ -18,5 +20,6 @@ for i in range(100):
     thread.start()
     threads.append(thread)
 
-for thread in threads: thread.join()
+for thread in threads:
+    thread.join()
 print(count)

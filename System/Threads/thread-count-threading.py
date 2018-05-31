@@ -10,11 +10,13 @@ coded, the main thread's exit message appears before child thread output;
 import threading, time
 printalone = threading.Lock()
 
+
 def counter(myId, count):
     for i in range(count):
         time.sleep(1)   
         with printalone:     
             print('[%s] => %s' % (myId, i))
+
 
 for i in range(5):                        
     threading.Thread(target=counter, args=(i, 5)).start()

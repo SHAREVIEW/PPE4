@@ -7,6 +7,7 @@ parent thread; see library manual for more details on threading;
 
 import threading
 
+
 class Mythread(threading.Thread):              # subclass Thread object
     def __init__(self, myId, count, mutex):
         self.myId  = myId
@@ -18,6 +19,7 @@ class Mythread(threading.Thread):              # subclass Thread object
         for i in range(self.count):            # still sync stdout access
             with self.mutex:
                 print('[%s] => %s' % (self.myId, i))
+
 
 stdoutmutex = threading.Lock()                 # same as thread.allocate_lock()
 threads = []
