@@ -4,4 +4,6 @@ def later():
     sys.exit(42)
     print('Never reached')
 
-if __name__ == '__main__': later()
+
+if __name__ == '__main__':
+    later()
