@@ -8,12 +8,14 @@ descriptors)--exitstat is always the same here but will vary if for threads;
 import os
 exitstat = 0
 
+
 def child():                                  # could os.exit a script here
     global exitstat                           # change this process's global
     exitstat += 1                             # exit status to parent's wait
     print('Hello from child', os.getpid(), exitstat)
     os._exit(exitstat)
     print('never reached')
+
 
 def parent():
     while True:
@@ -25,4 +27,6 @@ def parent():
             print('Parent got', pid, status, (status >> 8))
             if input() == 'q': break
 
-if __name__ == '__main__': parent()
+
+if __name__ == '__main__':
+    parent()

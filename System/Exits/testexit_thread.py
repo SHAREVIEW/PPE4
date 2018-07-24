@@ -9,6 +9,7 @@ may need to make print/input calls atomic on some platforms--shared stdout;
 import _thread as thread
 exitstat = 0
 
+
 def child():
     global exitstat                               # process global names
     exitstat += 1                                 # shared by all threads
@@ -17,9 +18,13 @@ def child():
     thread.exit()
     print('never reached')
 
+
 def parent():
     while True:
         thread.start_new_thread(child, ())
-        if input() == 'q': break
+        if input() == 'q':
+            break
 
-if __name__ == '__main__': parent()
+
+if __name__ == '__main__':
+    parent()
